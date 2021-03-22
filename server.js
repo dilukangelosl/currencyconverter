@@ -5,7 +5,7 @@ const express = require('express');
 const loki = require('lokijs');
 const app = express();
 const port = process.env.PORT || 3000;
-
+const helmet = require("helmet");
 const cors = require('cors');
 
 const convertRoute = require('./routes/convertRoutes');
@@ -16,6 +16,8 @@ const middleware = require('./middlewares/cache');
 // Parse JSON bodies for this app.
 app.use(express.json());
 
+//use helmet for security 
+app.use(helmet());
 //enable cors
 app.use(cors());
 
